@@ -5,6 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Experiencia - Guillermo Barrena</title>
   <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .experience-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2em;
+      display: flex;
+      align-items: flex-start;
+      gap: 2em;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .experience-logo img {
+      max-width: 200px;
+      height: auto;
+    }
+
+    .experience-details h2 {
+      margin-bottom: 0.3em;
+      font-size: 1.5em;
+    }
+
+    .experience-details h3 {
+      margin-top: 0;
+      font-weight: normal;
+      color: #555;
+    }
+
+    .experience-details p {
+      margin: 0.5em 0;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .experience-details ul {
+      padding-left: 1.2em;
+      margin-top: 0.5em;
+    }
+
+    .experience-details ul li {
+      margin-bottom: 0.5em;
+    }
+  </style>
 </head>
 <body>
 
@@ -27,18 +71,29 @@
     <section class="hero">
       <h1>Experiencia Laboral</h1>
 
-      <img src="assets/img/logonuevo.png" alt="Logo Gobierno de San Juan" style="max-width: 300px; margin: 20px auto; display: block;" />
-
-      <h2>Analista de Datos — Instituto de Investigaciones Económicas y Estadísticas (IIEE)</h2>
-      <p><strong>Julio - Diciembre 2024</strong></p>
-      <ul>
-        <li>Trabajo en áreas de Producto Geográfico Bruto (PGB) e Índice de Precios al Consumidor (IPC).</li>
-        <li>Procesamiento de datos externos, cálculo de variables y actualización web institucional.</li>
-        <li>Participación en el Relevamiento Industrial Manufacturero (RIM): control, transformación de datos y armado de bases.</li>
-        <li>Diseño de modelos de relevamiento más eficientes, evaluación de canastas y variaciones de precios.</li>
-        <li><strong>Herramientas:</strong> Python, Pandas, SQL, Excel, Power BI.</li>
-      </ul>
+      <div class="experience-container">
+        <div class="experience-logo">
+          <img src="assets/img/logonuevo.png" alt="Logo Gobierno de San Juan">
+        </div>
+        <div class="experience-details">
+          <h2>Instituto de Investigaciones Económicas y Estadísticas (IIEE)</h2>
+          <h3>Analista de Datos</h3>
+          <p>Julio - Diciembre 2024</p>
+          <ul>
+            <li>Colaboración en las áreas de PGB e IPC del INDEC en San Juan.</li>
+            <li>Procesamiento de datos, cálculo de variables y publicación institucional.</li>
+            <li>Participación activa en el RIM: análisis, control y transformación de datos.</li>
+            <li>Desarrollo de modelos para operativos de precios más eficientes.</li>
+            <li><strong>Herramientas:</strong> Python, Pandas, SQL, Excel, Power BI.</li>
+          </ul>
+        </div>
+      </div>
     </section>
   </main>
+
+  <footer>
+    <p>© 2025 Guillermo Barrena. Todos los derechos reservados.</p>
+  </footer>
+
 </body>
 </html>
