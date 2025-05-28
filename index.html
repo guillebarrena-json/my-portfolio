@@ -3,24 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portfolio profesional de Guillermo Barrena - Ciencia de Datos, Economía, Machine Learning.">
+  <meta name="description" content="Portfolio profesional de Guillermo Barrena - Especialista en Ciencia de Datos y Economía con enfoque en Machine Learning y análisis cuantitativo." />
+  <meta name="keywords" content="Guillermo Barrena, Ciencia de Datos, Economía, Machine Learning, Python, Análisis de Datos, Portfolio" />
+  <meta name="author" content="Guillermo Barrena" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png" />
+  
+  <!-- Social Media Meta Tags -->
+  <meta property="og:title" content="Guillermo Barrena - Ciencia de Datos & Economía" />
+  <meta property="og:description" content="Portfolio profesional de Guillermo Barrena - Especialista en Ciencia de Datos y Economía" />
+  <meta property="og:image" content="assets/img/profile.png" />
+  <meta property="og:url" content="https://[tu-usuario].github.io/my-portfolio/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  
   <title>Guillermo Barrena - Ciencia de Datos & Economía</title>
 
-  <!-- Bootstrap CSS -->
+  <!-- Preload critical assets -->
+  <link rel="preload" href="assets/css/style.css" as="style" />
+  <link rel="preload" href="assets/img/profile.png" as="image" />
+  
+  <!-- Bootstrap CSS & Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
 
   <style>
+    :root {
+      --primary-color: #007bff;
+      --accent-color: #d72638;
+      --text-color: #2c3e50;
+      --bg-light: #f8f9fa;
+    }
+
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 76px;
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      animation: gradient 10s ease infinite;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--text-color);
+      animation: gradient 15s ease infinite;
       background: linear-gradient(-45deg, #f0f4f8, #e3f2fd, #e0f7fa, #f1f8e9);
       background-size: 400% 400%;
-      transition: background 0.5s ease;
+      transition: all 0.3s ease;
+      line-height: 1.6;
+      padding-top: 76px;
     }
 
     @keyframes gradient {
@@ -32,19 +62,25 @@
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
-      animation: fadeIn 1s ease forwards;
-      animation-delay: 0.5s;
+      animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 0.2s;
     }
 
     @keyframes fadeIn {
       to {
         opacity: 1;
-        transform: none;
+        transform: translateY(0);
       }
     }
 
     .rounded-circle {
-      border: 3px solid #007bff;
+      border: 4px solid var(--primary-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .rounded-circle:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
 
     .hero {
@@ -54,68 +90,214 @@
       justify-content: center;
       flex-direction: column;
       text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .btn {
+      transition: all 0.3s ease;
+      border-radius: 30px;
+      padding: 0.8rem 2rem;
+      font-weight: 500;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .nav-link {
+      position: relative;
+      padding: 0.5rem 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      background-color: var(--primary-color);
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    #cv {
+      background: var(--bg-light);
+      border-radius: 20px;
+      margin: 2rem 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .dropdown-menu {
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .dropdown-item {
+      transition: all 0.2s ease;
+    }
+
+    .dropdown-item:hover {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 1rem;
+      }
+      
+      .btn {
+        margin: 0.5rem;
+        padding: 0.6rem 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
 
   <!-- Header -->
-  <header class="bg-dark text-white py-3">
+  <header class="bg-dark text-white py-3 fixed-top shadow-sm" style="background: rgba(33, 37, 41, 0.98) !important; backdrop-filter: blur(10px);">
     <div class="container d-flex justify-content-between align-items-center">
-      <h1 class="h5 mb-0">Guillermo Barrena</h1>
-      <nav>
-        <ul class="nav d-inline-flex">
+      <a href="index.html" class="text-white text-decoration-none">
+        <h1 class="h5 mb-0">GB<span class="text-primary">.</span></h1>
+      </a>
+      <nav class="d-flex align-items-center">
+        <ul class="nav d-none d-md-inline-flex">
           <li class="nav-item"><a href="index.html" class="nav-link text-white">Inicio</a></li>
-          <li class="nav-item"><a href="about.html" class="nav-link text-white">Sobre mí</a></li>
           <li class="nav-item"><a href="experience.html" class="nav-link text-white">Experiencia</a></li>
           <li class="nav-item"><a href="projects.html" class="nav-link text-white">Proyectos</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link text-white">Contacto</a></li>
         </ul>
+        <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
       </nav>
+    </div>
+    <!-- Mobile Menu -->
+    <div class="collapse navbar-collapse d-md-none" id="navbarMobile">
+      <ul class="navbar-nav text-center">
+        <li class="nav-item"><a href="index.html" class="nav-link text-white">Inicio</a></li>
+        <li class="nav-item"><a href="experience.html" class="nav-link text-white">Experiencia</a></li>
+        <li class="nav-item"><a href="projects.html" class="nav-link text-white">Proyectos</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link text-white">Contacto</a></li>
+      </ul>
     </div>
   </header>
 
   <!-- Hero Section -->
   <main class="hero fade-in">
-    <img src="assets/img/profile.png" alt="Foto de Guillermo Barrena" class="rounded-circle shadow mb-4" style="width: 150px; height: 150px; object-fit: cover;">
-    <h1 class="display-5">Hola, soy <span style="color:#d72638; font-weight:bold;">Guillermo Barrena</span></h1>
-    <p class="lead text-muted">Economista basado en datos. Aplico Python en mis tareas para lograr mayor eficiencia. Explorador de ideas y conocimientos a través del aprendizaje automático y la analítica.</p>
-    <div class="mt-4">
-      <a href="#cv" class="btn btn-danger btn-lg mx-2">Descarga mi CV</a>
-      <a href="contact.html" class="btn btn-outline-secondary btn-lg mx-2">Contáctame</a>
+    <div class="container">
+      <div class="position-relative mb-4">
+        <img src="assets/img/profile.png" alt="Foto de Guillermo Barrena" class="rounded-circle shadow mb-4" style="width: 180px; height: 180px; object-fit: cover;">
+        <div class="position-absolute bottom-0 end-0 bg-primary rounded-circle p-2" style="transform: translate(20%, 20%);">
+          <div class="bg-success rounded-circle" style="width: 12px; height: 12px;"></div>
+        </div>
+      </div>
+      
+      <h1 class="display-4 fw-bold mb-3">Hola, soy <span class="text-gradient">Guillermo Barrena</span></h1>
+      <p class="lead text-muted mb-4">Economista especializado en Ciencia de Datos | Machine Learning | Análisis Cuantitativo</p>
+      <p class="text-muted mb-4 col-lg-8 mx-auto">Transformo datos en decisiones estratégicas mediante Python y técnicas avanzadas de análisis. Apasionado por encontrar soluciones innovadoras a desafíos complejos.</p>
+      
+      <div class="d-flex justify-content-center gap-3 mb-5">
+        <a href="#cv" class="btn btn-primary btn-lg">Descarga mi CV</a>
+        <a href="contact.html" class="btn btn-outline-dark btn-lg">Contáctame</a>
+      </div>
+
+      <!-- Social Links -->
+      <div class="d-flex justify-content-center gap-4">
+        <a href="https://github.com/guillebarrena-json" target="_blank" rel="noopener noreferrer" class="text-dark fs-4">
+          <i class="bi bi-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/guillebarrena/" target="_blank" rel="noopener noreferrer" class="text-primary fs-4">
+          <i class="bi bi-linkedin"></i>
+        </a>
+        <a href="mailto:guillebarrena1@gmail.com" class="text-danger fs-4">
+          <i class="bi bi-envelope-fill"></i>
+        </a>
+      </div>
     </div>
   </main>
 
   <!-- CV Section -->
-  <section id="cv" class="bg-white py-5">
-    <div class="container text-center">
-      <h2 class="mb-4">Currículum Vitae</h2>
-      <p>Seleccioná el idioma para ver o descargar mi CV:</p>
+  <section id="cv" class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="bg-white rounded-4 shadow-sm p-4 p-md-5">
+            <div class="text-center mb-4">
+              <h2 class="h1 mb-3">Currículum Vitae</h2>
+              <p class="text-muted">Selecciona el idioma para ver o descargar mi CV</p>
+            </div>
 
-      <!-- Dropdown selector -->
-      <div class="dropdown mb-4">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="cvLanguageBtn" data-bs-toggle="dropdown" aria-expanded="false">
-          Elegir idioma
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="cvLanguageBtn">
-          <li><a class="dropdown-item" href="#" onclick="loadCV('ES')">📄 Español</a></li>
-          <li><a class="dropdown-item" href="#" onclick="loadCV('EN')">📄 Inglés</a></li>
-        </ul>
+            <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-3 mb-4">
+              <!-- Spanish CV Button -->
+              <button onclick="loadCV('ES')" class="btn btn-outline-primary d-flex align-items-center gap-2">
+                <i class="bi bi-file-earmark-text"></i>
+                <span>Español</span>
+                <img src="https://flagcdn.com/24x18/es.png" width="24" height="18" alt="Español">
+              </button>
+
+              <!-- English CV Button -->
+              <button onclick="loadCV('EN')" class="btn btn-outline-primary d-flex align-items-center gap-2">
+                <i class="bi bi-file-earmark-text"></i>
+                <span>Inglés</span>
+                <img src="https://flagcdn.com/24x18/gb.png" width="24" height="18" alt="Inglés">
+              </button>
+            </div>
+
+            <!-- Download Button -->
+            <div class="text-center mb-4">
+              <a id="cvDownload" href="assets/cv/CV_GuillermoBarrena_ES.pdf" class="btn btn-primary d-inline-flex align-items-center gap-2" download>
+                <i class="bi bi-download"></i>
+                <span>Descargar CV (Español)</span>
+              </a>
+            </div>
+
+            <!-- Preview Container -->
+            <div class="ratio ratio-16x9 rounded-3 overflow-hidden shadow-sm">
+              <iframe id="cvFrame" src="assets/cv/CV_GuillermoBarrena_ES.pdf" class="w-100 h-100" style="border:none;" title="Vista previa del CV"></iframe>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <!-- Botón de descarga -->
-      <a id="cvDownload" href="assets/cv/CV_GuillermoBarrena_ES.pdf" class="btn btn-outline-primary mb-4" download>
-        Descargar CV (Español)
-      </a>
-
-      <!-- Vista previa -->
-      <iframe id="cvFrame" src="assets/cv/CV_GuillermoBarrena_ES.pdf" width="100%" height="500px" style="max-width: 800px; border:1px solid #ccc;" title="Vista previa del CV"></iframe>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-3">
-    <p class="mb-0">© 2025 Guillermo Barrena.</p>
+  <footer class="bg-dark text-white py-4">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          <p class="mb-0">© 2025 Guillermo Barrena.</p>
+        </div>
+        <div class="col-md-6">
+          <ul class="list-inline text-center text-md-end mb-0">
+            <li class="list-inline-item">
+              <a href="https://github.com/guillebarrena-json" class="text-white" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-github"></i>
+              </a>
+            </li>
+            <li class="list-inline-item ms-3">
+              <a href="https://www.linkedin.com/in/guillebarrena/" class="text-white" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-linkedin"></i>
+              </a>
+            </li>
+            <li class="list-inline-item ms-3">
+              <a href="mailto:guillebarrena1@gmail.com" class="text-white">
+                <i class="bi bi-envelope-fill"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </footer>
 
   <!-- Scripts -->
@@ -124,19 +306,28 @@
     function loadCV(lang) {
       const frame = document.getElementById("cvFrame");
       const download = document.getElementById("cvDownload");
+      const isSpanish = lang === "ES";
 
-      if (lang === "EN") {
-        frame.src = "assets/cv/CV_GuillermoBarrena_EN.pdf";
-        download.href = "assets/cv/CV_GuillermoBarrena_EN.pdf";
-        download.className = "btn btn-outline-success mb-4";
-        download.textContent = "Download CV (English)";
-      } else {
-        frame.src = "assets/cv/CV_GuillermoBarrena_ES.pdf";
-        download.href = "assets/cv/CV_GuillermoBarrena_ES.pdf";
-        download.className = "btn btn-outline-primary mb-4";
-        download.textContent = "Descargar CV (Español)";
-      }
+      frame.src = `assets/cv/CV_GuillermoBarrena_${lang}.pdf`;
+      download.href = `assets/cv/CV_GuillermoBarrena_${lang}.pdf`;
+      download.innerHTML = `
+        <i class="bi bi-download"></i>
+        <span>
+          ${isSpanish ? 'Descargar CV (Español)' : 'Download CV (English)'}
+        </span>
+      `;
     }
+
+    // Añadir clase active al enlace de navegación actual
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentLocation = location.pathname;
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        if(link.getAttribute('href') === currentLocation) {
+          link.classList.add('active');
+        }
+      });
+    });
   </script>
 </body>
 </html>
