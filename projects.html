@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Contacta con Guillermo Barrena - Especialista en Ciencia de Datos y Economía" />
-  <meta name="keywords" content="Guillermo Barrena, Contacto, Email, LinkedIn, Formulario de contacto" />
+  <meta name="description" content="Proyectos de Guillermo Barrena - Portfolio de proyectos en Ciencia de Datos y Economía" />
+  <meta name="keywords" content="Guillermo Barrena, Proyectos, Data Science, Machine Learning, Python, Análisis de Datos" />
   <meta name="author" content="Guillermo Barrena" />
   
   <!-- Favicon -->
@@ -12,13 +12,13 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png" />
   
   <!-- Social Media Meta Tags -->
-  <meta property="og:title" content="Contacto - Guillermo Barrena" />
-  <meta property="og:description" content="Contacta con Guillermo Barrena para colaboraciones y oportunidades" />
+  <meta property="og:title" content="Proyectos - Guillermo Barrena" />
+  <meta property="og:description" content="Portfolio de proyectos en Ciencia de Datos y Economía" />
   <meta property="og:image" content="assets/img/profile.png" />
-  <meta property="og:url" content="https://[tu-usuario].github.io/my-portfolio/contact.html" />
+  <meta property="og:url" content="https://[tu-usuario].github.io/my-portfolio/projects.html" />
   <meta name="twitter:card" content="summary_large_image" />
   
-  <title>Contacto - Guillermo Barrena</title>
+  <title>Proyectos - Guillermo Barrena</title>
 
   <!-- Preload critical assets -->
   <link rel="preload" href="assets/css/style.css" as="style" />
@@ -62,8 +62,11 @@
       opacity: 0;
       transform: translateY(20px);
       animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-      animation-delay: 0.2s;
     }
+
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
 
     @keyframes fadeIn {
       to {
@@ -72,56 +75,133 @@
       }
     }
 
-    .contact-form {
+    .project-card {
       background: white;
       border-radius: 1rem;
-      padding: 2rem;
+      overflow: hidden;
       box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
-    .contact-card {
-      background: white;
-      border-radius: 1rem;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
-    }
-
-    .contact-card:hover {
+    .project-card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
     }
 
-    .contact-icon {
-      font-size: 2rem;
-      color: var(--primary-color);
+    .project-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 1px solid #eee;
+    }
+
+    .project-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+    }
+
+    .project-description {
+      color: #666;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .project-tags {
       margin-bottom: 1rem;
     }
 
-    .form-control {
-      border-radius: 0.5rem;
-      padding: 0.75rem;
-      border: 1px solid #dee2e6;
+    .tag {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      margin: 0.25rem;
+      border-radius: 2rem;
+      background: var(--bg-light);
+      color: var(--text-color);
+      font-size: 0.875rem;
+      transition: all 0.2s ease;
     }
 
-    .form-control:focus {
-      box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
-    }
-
-    .btn-submit {
-      width: 100%;
-      padding: 0.75rem;
-      border-radius: 0.5rem;
+    .tag:hover {
       background: var(--primary-color);
-      border: none;
       color: white;
-      font-weight: 500;
-      transition: all 0.3s ease;
     }
 
-    .btn-submit:hover {
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: auto;
+    }
+
+    .btn-project {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .btn-demo {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .btn-demo:hover {
       background: #0056b3;
+      color: white;
       transform: translateY(-2px);
+    }
+
+    .btn-code {
+      background: var(--bg-light);
+      color: var(--text-color);
+    }
+
+    .btn-code:hover {
+      background: #e9ecef;
+      color: var(--text-color);
+      transform: translateY(-2px);
+    }
+
+    .btn-disabled {
+      background: #e9ecef;
+      color: #6c757d;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .project-status {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 2rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .status-private {
+      background: rgba(108, 117, 125, 0.1);
+      color: #6c757d;
+    }
+
+    .status-public {
+      background: rgba(25, 135, 84, 0.1);
+      color: #198754;
     }
 
     /* Mobile Navigation Styles */
@@ -164,33 +244,38 @@
         margin-bottom: 2rem !important;
       }
 
-      .contact-form {
-        padding: 1.5rem;
+      .project-card {
         margin: 0 1rem;
       }
 
-      .contact-card {
-        margin: 0.5rem 1rem;
+      .project-image {
+        height: 180px;
+      }
+
+      .project-content {
         padding: 1.25rem;
       }
 
-      .contact-icon {
-        font-size: 1.75rem;
+      .project-title {
+        font-size: 1.1rem;
       }
 
-      .form-control {
-        padding: 0.6rem;
-        font-size: 1rem;
+      .project-description {
+        font-size: 0.95rem;
       }
 
-      .btn-submit {
-        padding: 0.6rem;
-        font-size: 1rem;
+      .tag {
+        font-size: 0.8rem;
+        padding: 0.2rem 0.6rem;
       }
 
-      .contact-card a {
+      .btn-project {
+        padding: 0.4rem 0.8rem;
         font-size: 0.9rem;
-        word-break: break-all;
+      }
+
+      .row.g-4 {
+        margin: 0;
       }
     }
 
@@ -199,54 +284,31 @@
         font-size: 1.75rem;
       }
 
-      .contact-form {
-        padding: 1.25rem;
+      .project-card {
         margin: 0 0.5rem;
       }
 
-      .contact-card {
-        margin: 0.5rem;
+      .project-image {
+        height: 160px;
+      }
+
+      .project-content {
         padding: 1rem;
       }
 
-      .contact-icon {
-        font-size: 1.5rem;
+      .project-title {
+        font-size: 1rem;
       }
 
-      .form-control {
-        padding: 0.5rem;
-        font-size: 0.95rem;
+      .project-description {
+        font-size: 0.9rem;
       }
 
-      .btn-submit {
-        padding: 0.5rem;
-        font-size: 0.95rem;
+      .tag {
+        font-size: 0.75rem;
+        padding: 0.15rem 0.5rem;
+        margin: 0.2rem;
       }
-
-      .h4 {
-        font-size: 1.1rem;
-      }
-    }
-
-    /* Form focus states and validation styles */
-    .form-control:focus {
-      border-color: var(--primary-color);
-      box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.15);
-    }
-
-    .was-validated .form-control:valid {
-      border-color: #198754;
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
-    }
-
-    .was-validated .form-control:invalid {
-      border-color: #dc3545;
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
-    }
-
-    .invalid-feedback {
-      font-size: 0.875rem;
-      color: #dc3545;
     }
   </style>
 </head>
@@ -284,73 +346,91 @@
   <!-- Main Content -->
   <main class="py-5">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <h1 class="display-4 text-center mb-5 fade-in">Contacto</h1>
-          
-          <div class="row mb-5">
-            <!-- Email Card -->
-            <div class="col-md-6 mb-4">
-              <div class="contact-card text-center">
-                <i class="bi bi-envelope contact-icon"></i>
-                <h3 class="h4 mb-3">Email</h3>
-                <a href="mailto:guillebarrena1@gmail.com" class="text-decoration-none text-primary">
-                  guillebarrena1@gmail.com
+      <h1 class="display-4 text-center mb-5 fade-in">Proyectos Destacados</h1>
+      
+      <div class="row g-4">
+        <!-- Proyecto 1 -->
+        <div class="col-md-6 col-lg-4 fade-in delay-1">
+          <div class="project-card">
+            <!-- <span class="project-status status-public">Diplomatura</span> -->
+            <img src="assets/img/cnnstat.png" alt="Diagnóstico de Imágenes Médicas" class="project-image">
+            <div class="project-content">
+              <h3 class="project-title">Diagnóstico de Imágenes Médicas</h3>
+              <p class="project-description">
+                Desarrollo de modelos de redes neuronales convolucionales (CNN) y regresión logística para detectar anomalías en radiografías. Evaluación de precisión y exactitud usando técnicas estadísticas.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">TensorFlow</span>
+                <span class="tag">CNN</span>
+                <span class="tag">OpenCV</span>
+              </div>
+              <!-- <div class="project-links">
+                <a href="https://github.com/tu-usuario/medical-ai" target="_blank" class="btn-project btn-demo">
+                  <i class="bi bi-eye"></i>
+                  Demo
                 </a>
-              </div>
-            </div>
-            
-            <!-- LinkedIn Card -->
-            <div class="col-md-6 mb-4">
-              <div class="contact-card text-center">
-                <i class="bi bi-linkedin contact-icon"></i>
-                <h3 class="h4 mb-3">LinkedIn</h3>
-                <a href="https://www.linkedin.com/in/guillebarrena" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-primary">
-                  linkedin.com/in/guillebarrena
+                <a href="https://github.com/tu-usuario/medical-ai" target="_blank" class="btn-project btn-code">
+                  <i class="bi bi-code-slash"></i>
+                  Código
                 </a>
-              </div>
+              </div> -->
             </div>
-          </div>
-
-          <!-- Contact Form -->
-          <div class="contact-form fade-in">
-            <h2 class="h3 text-center mb-4">Formulario de contacto</h2>
-            <form action="https://formspree.io/f/mzzrllkj" method="POST" class="needs-validation" novalidate>
-              <div class="mb-3">
-                <label for="name" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="name" name="name" required>
-                <div class="invalid-feedback">
-                  Por favor, ingresa tu nombre
-                </div>
-              </div>
-
-              <div class="mb-3">
-                <label for="email" class="form-label">Correo electrónico</label>
-                <input type="email" class="form-control" id="email" name="_replyto" required>
-                <div class="invalid-feedback">
-                  Por favor, ingresa un correo electrónico válido
-                </div>
-              </div>
-
-              <div class="mb-4">
-                <label for="message" class="form-label">Mensaje</label>
-                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
-                <div class="invalid-feedback">
-                  Por favor, escribe tu mensaje
-                </div>
-              </div>
-
-              <button type="submit" class="btn-submit">
-                Enviar mensaje
-                <i class="bi bi-arrow-right ms-2"></i>
-              </button>
-            </form>
-
-            <p class="text-center text-muted mt-3 small">
-              Formulario provisto por <a href="https://formspree.io" target="_blank" rel="noopener noreferrer" class="text-decoration-none">Formspree.io</a>
-            </p>
           </div>
         </div>
+
+        <!-- Proyecto 2 -->
+        <div class="col-md-6 col-lg-4 fade-in delay-2">
+          <div class="project-card">
+            <!-- <span class="project-status status-public">Propio</span> -->
+            <img src="assets/img/scrapproy.png" alt="Web Scraping y Almacenamiento" class="project-image">
+            <div class="project-content">
+              <h3 class="project-title">Web Scraping y Almacenamiento</h3>
+              <p class="project-description">
+                Sistema de extracción de precios desde webs y almacenamiento en PostgreSQL (con Docker) y DuckDB. Consultas mediante Python y MotherDuck.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">Docker</span>
+                <span class="tag">DuckDB</span>
+              </div>
+              <!-- <div class="project-links">
+                <a href="https://github.com/tu-usuario/price-tracker" target="_blank" class="btn-project btn-code">
+                  <i class="bi bi-code-slash"></i>
+                  Código
+                </a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto 3 -->
+        <div class="col-md-6 col-lg-4 fade-in delay-3">
+          <div class="project-card">
+            <!-- <span class="project-status status-private">Propio</span> -->
+            <img src="assets/img/mageproy.png" alt="Automatización de Pipelines" class="project-image">
+            <div class="project-content">
+              <h3 class="project-title">Automatización de Pipelines</h3>
+              <p class="project-description">
+                Pipeline completo con Mage AI: ingesta, limpieza y actualización de datos para análisis automatizados. Implementación de ETL y monitoreo.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Mage AI</span>
+                <span class="tag">Python</span>
+                <span class="tag">ETL</span>
+                <span class="tag">SQL</span>
+              </div>
+              <!-- <div class="project-links">
+                <button class="btn-project btn-disabled" disabled>
+                  <i class="bi bi-lock"></i>
+                  Proyecto Privado
+                </button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </main>
@@ -388,24 +468,8 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
+    // Add active class to current nav item
     document.addEventListener('DOMContentLoaded', function() {
-      // Form validation
-      (function () {
-        'use strict'
-        var forms = document.querySelectorAll('.needs-validation')
-        Array.prototype.slice.call(forms)
-          .forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-              if (!form.checkValidity()) {
-                event.preventDefault()
-                event.stopPropagation()
-              }
-              form.classList.add('was-validated')
-            }, false)
-          })
-      })()
-
-      // Existing active class code
       const currentLocation = location.pathname;
       const navLinks = document.querySelectorAll('.nav-link');
       navLinks.forEach(link => {
@@ -439,4 +503,4 @@
     });
   </script>
 </body>
-</html>
+</html> 

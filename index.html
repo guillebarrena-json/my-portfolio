@@ -84,7 +84,7 @@
     }
 
     .hero {
-      min-height: 90vh;
+      min-height: calc(100vh - 76px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -148,15 +148,173 @@
       color: white;
     }
 
+    /* Mobile Navigation Styles */
+    .navbar-toggler {
+      border: none;
+      padding: 0.25rem;
+      color: white;
+      background: transparent;
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: none;
+      outline: none;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.85)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    #navbarMobile {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(33, 37, 41, 0.98);
+      backdrop-filter: blur(10px);
+      padding: 1rem 0;
+      z-index: 1000;
+    }
+
+    #navbarMobile .nav-link {
+      padding: 0.75rem 1rem;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
     @media (max-width: 768px) {
       .hero {
-        padding: 1rem;
+        padding: 2rem 1rem;
+        background: linear-gradient(-45deg, #f0f4f8, #e3f2fd, #e0f7fa, #f1f8e9);
+        background-size: 400% 400%;
+      }
+      
+      .rounded-circle {
+        width: 120px !important;
+        height: 120px !important;
+        border: 3px solid var(--primary-color);
+      }
+
+      .position-absolute.bottom-0.end-0 {
+        transform: translate(10%, 10%) !important;
+      }
+
+      .display-4 {
+        font-size: 2rem;
+        line-height: 1.2;
+      }
+
+      .lead {
+        font-size: 1.1rem;
+      }
+
+      .text-muted {
+        font-size: 0.95rem;
       }
       
       .btn {
         margin: 0.5rem;
         padding: 0.6rem 1.5rem;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 200px;
       }
+
+      .d-flex.justify-content-center.gap-3 {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #cv {
+        margin: 1rem;
+        padding: 1rem !important;
+      }
+
+      .btn-outline-primary, .btn-primary {
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+
+      .ratio {
+        height: 300px !important;
+      }
+
+      .social-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 1.25rem !important;
+      }
+
+      .cv-container {
+        padding: 1rem !important;
+      }
+
+      .cv-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .cv-buttons .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    /* Very small screens */
+    @media (max-width: 360px) {
+      .display-4 {
+        font-size: 1.75rem;
+      }
+
+      .rounded-circle {
+        width: 100px !important;
+        height: 100px !important;
+      }
+
+      .btn {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+      }
+
+      .ratio {
+        height: 250px !important;
+      }
+    }
+
+    .cv-container {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+
+    .cv-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .cv-preview {
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .social-icon {
+      transition: transform 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .social-icon:hover {
+      transform: translateY(-3px);
     }
   </style>
 </head>
@@ -201,7 +359,7 @@
         </div>
       </div>
       
-      <h1 class="display-4 fw-bold mb-3">Hola, soy <span class="text-gradient">Guillermo Barrena</span></h1>
+      <h1 class="display-4 fw-bold mb-3">Hola, soy <span class="text-primary">Guillermo Barrena</span></h1>
       <p class="lead text-muted mb-4">Economista especializado en Ciencia de Datos | Machine Learning | Análisis Cuantitativo</p>
       <p class="text-muted mb-4 col-lg-8 mx-auto">Transformo datos en decisiones estratégicas mediante Python y técnicas avanzadas de análisis. Apasionado por encontrar soluciones innovadoras a desafíos complejos.</p>
       
@@ -211,14 +369,14 @@
       </div>
 
       <!-- Social Links -->
-      <div class="d-flex justify-content-center gap-4">
-        <a href="https://github.com/guillebarrena-json" target="_blank" rel="noopener noreferrer" class="text-dark fs-4">
+      <div class="d-flex justify-content-center gap-4 social-links">
+        <a href="https://github.com/guillebarrena-json" target="_blank" rel="noopener noreferrer" class="text-dark fs-4 social-icon">
           <i class="bi bi-github"></i>
         </a>
-        <a href="https://www.linkedin.com/in/guillebarrena/" target="_blank" rel="noopener noreferrer" class="text-primary fs-4">
+        <a href="https://www.linkedin.com/in/guillebarrena/" target="_blank" rel="noopener noreferrer" class="text-primary fs-4 social-icon">
           <i class="bi bi-linkedin"></i>
         </a>
-        <a href="mailto:guillebarrena1@gmail.com" class="text-danger fs-4">
+        <a href="mailto:guillebarrena1@gmail.com" class="text-danger fs-4 social-icon">
           <i class="bi bi-envelope-fill"></i>
         </a>
       </div>
@@ -230,22 +388,22 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8">
-          <div class="bg-white rounded-4 shadow-sm p-4 p-md-5">
+          <div class="cv-container">
             <div class="text-center mb-4">
               <h2 class="h1 mb-3">Currículum Vitae</h2>
               <p class="text-muted">Selecciona el idioma para ver o descargar mi CV</p>
             </div>
 
-            <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-3 mb-4">
+            <div class="cv-buttons">
               <!-- Spanish CV Button -->
-              <button onclick="loadCV('ES')" class="btn btn-outline-primary d-flex align-items-center gap-2">
+              <button onclick="loadCV('ES')" class="btn btn-outline-primary d-flex align-items-center gap-2 justify-content-center">
                 <i class="bi bi-file-earmark-text"></i>
                 <span>Español</span>
                 <img src="https://flagcdn.com/24x18/es.png" width="24" height="18" alt="Español">
               </button>
 
               <!-- English CV Button -->
-              <button onclick="loadCV('EN')" class="btn btn-outline-primary d-flex align-items-center gap-2">
+              <button onclick="loadCV('EN')" class="btn btn-outline-primary d-flex align-items-center gap-2 justify-content-center">
                 <i class="bi bi-file-earmark-text"></i>
                 <span>Inglés</span>
                 <img src="https://flagcdn.com/24x18/gb.png" width="24" height="18" alt="Inglés">
@@ -254,15 +412,17 @@
 
             <!-- Download Button -->
             <div class="text-center mb-4">
-              <a id="cvDownload" href="assets/cv/CV_GuillermoBarrena_ES.pdf" class="btn btn-primary d-inline-flex align-items-center gap-2" download>
+              <a id="cvDownload" href="assets/cv/CV_GuillermoBarrena_ES.pdf" class="btn btn-primary d-inline-flex align-items-center gap-2 justify-content-center" download>
                 <i class="bi bi-download"></i>
                 <span>Descargar CV (Español)</span>
               </a>
             </div>
 
             <!-- Preview Container -->
-            <div class="ratio ratio-16x9 rounded-3 overflow-hidden shadow-sm">
-              <iframe id="cvFrame" src="assets/cv/CV_GuillermoBarrena_ES.pdf" class="w-100 h-100" style="border:none;" title="Vista previa del CV"></iframe>
+            <div class="cv-preview">
+              <div class="ratio ratio-16x9">
+                <iframe id="cvFrame" src="assets/cv/CV_GuillermoBarrena_ES.pdf" class="w-100 h-100" style="border:none;" title="Vista previa del CV"></iframe>
+              </div>
             </div>
           </div>
         </div>
@@ -318,14 +478,46 @@
       `;
     }
 
-    // Añadir clase active al enlace de navegación actual
+    // Add mobile menu functionality
     document.addEventListener('DOMContentLoaded', function() {
+      // Existing active class code
       const currentLocation = location.pathname;
       const navLinks = document.querySelectorAll('.nav-link');
       navLinks.forEach(link => {
-        if(link.getAttribute('href') === currentLocation) {
+        if(link.getAttribute('href') === currentLocation.split('/').pop()) {
           link.classList.add('active');
         }
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', function(event) {
+        const navbarMobile = document.getElementById('navbarMobile');
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        
+        if (!navbarToggler.contains(event.target) && !navbarMobile.contains(event.target)) {
+          if (navbarMobile.classList.contains('show')) {
+            navbarToggler.click();
+          }
+        }
+      });
+
+      // Close mobile menu when clicking a link
+      const mobileLinks = document.querySelectorAll('#navbarMobile .nav-link');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          const navbarMobile = document.getElementById('navbarMobile');
+          if (navbarMobile.classList.contains('show')) {
+            document.querySelector('.navbar-toggler').click();
+          }
+        });
+      });
+
+      // Smooth scroll for CV link
+      document.querySelector('a[href="#cv"]').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector('#cv').scrollIntoView({
+          behavior: 'smooth'
+        });
       });
     });
   </script>
