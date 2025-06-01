@@ -2,45 +2,432 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Formación - Guillermo Barrena</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Educación y Certificaciones de Guillermo Barrena - Analista de Datos y Economista especializado en Ciencia de Datos" />
+  <meta name="keywords" content="Guillermo Barrena, Educación, Universidad Católica de Cuyo, Cambridge University" />
+  <meta name="author" content="Guillermo Barrena" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png" />
+  
+  <!-- Social Media Meta Tags -->
+  <meta property="og:title" content="Educación y Certificaciones - Guillermo Barrena" />
+  <meta property="og:description" content="Educación en Análisis de Datos y Economía, además de certificaciones relevantes." />
+  <meta property="og:image" content="assets/img/profile.png" />
+  <meta property="og:url" content="https://[tu-usuario].github.io/my-portfolio/education.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  
+  <title>Educación y Certificaciones - GB</title>
+
+  <!-- Preload critical assets -->
+  <link rel="preload" href="assets/css/style.css" as="style" />
+  
+  <!-- Bootstrap CSS & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    :root {
+      --primary-color: #007bff;
+      --accent-color: #d72638;
+      --text-color: #2c3e50;
+      --bg-light: #f8f9fa;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 76px;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: var(--text-color);
+      animation: gradient 15s ease infinite;
+      background: linear-gradient(-45deg, #f0f4f8, #e3f2fd, #e0f7fa, #f1f8e9);
+      background-size: 400% 400%;
+      transition: all 0.3s ease;
+      line-height: 1.6;
+      padding-top: 76px;
+    }
+
+    @keyframes gradient {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 0.2s;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .education-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: none;
+      border-radius: 1rem;
+    }
+
+    .education-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .nav-link {
+      position: relative;
+      padding: 0.5rem 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      background-color: var(--primary-color);
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+      left: 0;
+    }
+
+    /* Fixed Mobile Navigation Styles */
+    .navbar-toggler {
+      border: none;
+      padding: 0.25rem;
+      color: white;
+      background: transparent;
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: none;
+      outline: none;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.85)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      width: 24px;
+      height: 24px;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1030;
+    }
+
+    #navbarMobile {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(33, 37, 41, 0.98);
+      backdrop-filter: blur(10px);
+      padding: 1rem 0;
+      z-index: 1030;
+    }
+
+    #navbarMobile .nav-link {
+      padding: 0.75rem 1rem;
+      text-align: center;
+      font-size: 1.1rem;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(33, 37, 41, 0.98);
+        backdrop-filter: blur(10px);
+        z-index: 1030;
+      }
+
+      .display-4 {
+        font-size: 2rem;
+        margin-bottom: 2rem !important;
+      }
+
+      .education-card {
+        margin: 0 1rem;
+      }
+
+      .education-card .row {
+        flex-direction: column;
+      }
+
+      .education-card .col-md-3 {
+        padding: 1.5rem !important;
+      }
+
+      .education-card .card-body {
+        padding: 1.5rem !important;
+      }
+
+      .badge.rounded-pill {
+        position: static;
+        display: inline-block;
+        margin-bottom: 1rem;
+      }
+
+      .d-flex.justify-content-between {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .education-card {
+        margin: 0 0.5rem;
+      }
+
+      .education-card .card-body {
+        padding: 1rem !important;
+      }
+
+      .display-4 {
+        font-size: 1.75rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <header>
-    <nav class="navbar">
-      <div class="logo">Guillermo Barrena</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="about.html">Sobre mí</a></li>
-        <li><a href="experience.html">Experiencia</a></li>
-        <li><a href="education.html">Formación</a></li>
-        <li><a href="projects.html">Proyectos</a></li>
-        <li><a href="tools.html">Tecnologías</a></li>
-        <li><a href="contact.html">Contacto</a></li>
+  <!-- Header -->
+  <header class="bg-dark text-white py-3 shadow-sm" style="background: rgba(33, 37, 41, 0.98) !important; backdrop-filter: blur(10px);">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a href="index.html" class="text-white text-decoration-none">
+        <h1 class="h5 mb-0">GB<span class="text-primary">.</span></h1>
+      </a>
+      <nav>
+        <ul class="nav d-none d-md-flex">
+          <li class="nav-item"><a href="index.html" class="nav-link text-white">Inicio</a></li>
+          <li class="nav-item"><a href="education.html" class="nav-link text-white">Educación</a></li>
+          <li class="nav-item"><a href="experience.html" class="nav-link text-white">Experiencia</a></li>
+          <li class="nav-item"><a href="projects.html" class="nav-link text-white">Proyectos</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link text-white">Contacto</a></li>
+        </ul>
+        <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav>
+    </div>
+    <!-- Mobile Menu -->
+    <div class="collapse navbar-collapse d-md-none" id="navbarMobile">
+      <ul class="navbar-nav text-center">
+        <li class="nav-item"><a href="index.html" class="nav-link text-white">Inicio</a></li>
+        <li class="nav-item"><a href="education.html" class="nav-link text-white">Educación</a></li>
+        <li class="nav-item"><a href="experience.html" class="nav-link text-white">Experiencia</a></li>
+        <li class="nav-item"><a href="projects.html" class="nav-link text-white">Proyectos</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link text-white">Contacto</a></li>
       </ul>
-    </nav>
+    </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <h1>Formación Académica</h1>
+  <!-- Main Content -->
+  <main class="py-5">
+    <div class="container">
 
-      <h2>Licenciatura en Economía</h2>
-      <p><strong>Universidad Católica de Cuyo</strong> — Marzo 2019 - Junio 2025</p>
+      <!-- Sección de Educación -->
+      <h2 class="display-4 text-center mb-5 fade-in">Educación</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
 
-      <h2>Diplomatura en Ciencia de Datos</h2>
-      <p><strong>Universidad Católica de Cuyo</strong> — Julio 2024 - Actualidad</p>
+          <!-- Licenciatura en Economía -->
+          <div class="card education-card shadow-sm mb-4 fade-in">
+            <div class="row g-0">
+              <div class="col-md-3 d-flex align-items-center justify-content-center p-4">
+                <!-- Reemplazar con el logo de la Universidad Católica de Cuyo -->
+                <img src="assets/img/escudocat.png" alt="Logo Universidad Católica de Cuyo" class="img-fluid rounded" style="max-height: 170px;">
+              </div>
+              <div class="col-md-9">
+                <div class="card-body p-4">
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <div>
+                      <h3 class="h4 mb-1">Licenciatura en Economía</h3>
+                      <h4 class="h5 text-primary mb-2">Universidad Católica de Cuyo</h4>
+                    </div>  
+                    <span class="badge bg-primary rounded-pill">2019 – 2025</span>
+                  </div>
+                  <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i>Plan de estudios orientado a Economía y Estadística.</li>
+                    <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i>Trabajo final sobre el declive de la tasa de fertilidad y el impacto de la tecnología en las economías. Aplicación de técnicas econometricas y de machine learning para clasificar.</li>
+                    <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i>Participación en cursos de Estadística Aplicada en Python, adquiriendo habilidades en limpieza de datos y construcción de modelos.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      <h2>Inglés</h2>
-      <p>Cambridge First Certificate — Nivel B2 (Avanzado)</p>
-    </section>
+          <!-- Diplomatura en Ciencia de Datos -->
+          <div class="card education-card shadow-sm mb-4 fade-in">
+            <div class="row g-0">
+              <div class="col-md-3 d-flex align-items-center justify-content-center p-4">
+                <!-- Reemplazar con el logo de la institución que otorga la diplomatura -->
+                <img src="assets/img/escudocat.png" alt="Logo Diplomatura Ciencia de Datos" class="img-fluid rounded" style="max-height: 170px;">
+              </div>
+              <div class="col-md-9">
+                <div class="card-body p-4">
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <div>
+                      <h3 class="h4 mb-1">Diplomatura en Ciencia de Datos</h3>
+                      <h4 class="h5 text-primary mb-2">Universidad Católica de Cuyo</h4>
+                    </div>
+                    <span class="badge bg-primary rounded-pill">2024 – Presente</span>
+                  </div>
+                  <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i>Proyecto de diagnóstico de imágenes con CNN, diseño de arquitectura entrenamiento y validación de modelos propios para clasificar patologías a partir de datos de imágenes médicas</li>
+                    <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i>Modulos cursados:</li>
+                    <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i>Dominio de bases de datos relacionales y no relacionales, diseño de esquemas normalizados y desnormalizados, creación de pipelines ETL para extracción, transformación y carga de datos desde múltiples fuentes, desarrollo de workflows automatizados con Airflow, gestión de versiones de datos y aseguramiento de calidad, e implementación de soluciones en la nube con AWS, configurando servicios como RDS, S3, Lambda y EMR para procesamiento escalable de grandes volúmenes de información.</li>
+                  </ul>
+                  <div class="mt-3 pt-3 border-top">
+                    <h5 class="h6 mb-2">Herramientas:</h5>
+                    <div class="d-flex gap-2 flex-wrap">
+                      <span class="badge bg-light text-dark">Python</span>
+                      <span class="badge bg-light text-dark">Pandas</span>
+                      <span class="badge bg-light text-dark">SQL</span>
+                      <span class="badge bg-light text-dark">TensorFlow</span>
+                      <span class="badge bg-light text-dark">AWS</span>
+                      <span class="badge bg-light text-dark">PostgreSQL</span>
+                      <span class="badge bg-light text-dark">DuckDB</span>
+                      <span class="badge bg-light text-dark">FastAPI</span>
+                      <span class="badge bg-light text-dark">Docker</span>
+                      <span class="badge bg-light text-dark">WSL (Linux)</span>
+                      <span class="badge bg-light text-dark">GitHub</span>  
+                      <span class="badge bg-light text-dark">Entre Otras...</span>
+             
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Sección de Certificaciones -->
+      <h2 class="display-4 text-center my-5 fade-in">Certificaciones</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+
+          <!-- Certificado B2 de Cambridge -->
+          <div class="card education-card shadow-sm mb-4 fade-in">
+            <div class="row g-0">
+              <div class="col-md-3 d-flex align-items-center justify-content-center p-4">
+                <!-- Reemplazar con el logo de Cambridge English -->
+                <img src="assets/img/escudocam.png" alt="Logo Cambridge English" class="img-fluid rounded" style="max-height: 170px;">
+              </div>
+              <div class="col-md-9">
+                <div class="card-body p-4">
+                  <div class="d-flex justify-content-between align-items-start mb-2">
+                    <div>
+                      <h3 class="h4 mb-1">Certificado B2 de Cambridge</h3>
+                      <h4 class="h5 text-primary mb-2">Cambridge English</h4>
+                    </div>
+                    <span class="badge bg-primary rounded-pill">Enero 2024</span>
+                  </div>
+                  <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i>Dominio intermedio-avanzado del idioma inglés.</li>
+                    <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i>Habilidades comprobadas en lectura, escritura, escucha y habla.</li>
+                    <li class="mb-2"><i class="bi bi-check2-circle text-primary me-2"></i>Examen aprobado con calificación equivalente a 179/190.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
   </main>
 
-  <footer>
-    <p>© 2025 Guillermo Barrena. Todos los derechos reservados.</p>
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          <p class="mb-0">© 2024 Guillermo Barrena.</p>
+        </div>
+        <div class="col-md-6">
+          <ul class="list-inline text-center text-md-end mb-0">
+            <li class="list-inline-item">
+              <a href="https://github.com/guillebarrena-json" class="text-white" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-github"></i>
+              </a>
+            </li>
+            <li class="list-inline-item ms-3">
+              <a href="https://www.linkedin.com/in/guillebarrena/" class="text-white" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-linkedin"></i>
+              </a>
+            </li>
+            <li class="list-inline-item ms-3">
+              <a href="mailto:guillebarrena1@gmail.com" class="text-white">
+                <i class="bi bi-envelope-fill"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </footer>
 
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Añadir clase active al enlace de navegación actual
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentLocation = location.pathname;
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentLocation.split('/').pop()) {
+          link.classList.add('active');
+        }
+      });
+
+      // Close mobile menu when clicking fuera
+      document.addEventListener('click', function(event) {
+        const navbarMobile = document.getElementById('navbarMobile');
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        
+        if (!navbarToggler.contains(event.target) && !navbarMobile.contains(event.target)) {
+          if (navbarMobile.classList.contains('show')) {
+            navbarToggler.click();
+          }
+        }
+      });
+
+      // Close mobile menu when clicking un enlace
+      const mobileLinks = document.querySelectorAll('#navbarMobile .nav-link');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          const navbarMobile = document.getElementById('navbarMobile');
+          if (navbarMobile.classList.contains('show')) {
+            document.querySelector('.navbar-toggler').click();
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
+
