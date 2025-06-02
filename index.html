@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Portfolio profesional de Guillermo Barrena - Especialista en Ciencia de Datos y Economía con enfoque en Machine Learning y análisis cuantitativo." />
-  <meta name="keywords" content="Guillermo Barrena, Ciencia de Datos, Economía, Machine Learning, Python, Análisis de Datos, Portfolio" />
+  <meta name="keywords" content="Guillermo Barrena, Ciencia de Datos, Economía, Bases de Datos, Machine Learning, Python, Análisis de Datos, Portfolio" />
   <meta name="author" content="Guillermo Barrena" />
   
   <!-- Favicon -->
@@ -258,6 +258,16 @@
         width: 100%;
         margin-bottom: 0.5rem;
       }
+
+      .tech-icon {
+        width: 50px;
+        height: 50px;
+        padding: 8px;
+      }
+
+      .tech-icon-wrapper p {
+        font-size: 0.8rem;
+      }
     }
 
     /* Very small screens */
@@ -316,6 +326,29 @@
     .social-icon:hover {
       transform: translateY(-3px);
     }
+
+    /* Technology Icons Styles */
+    .tech-icon-wrapper {
+      transition: all 0.3s ease;
+    }
+
+    .tech-icon {
+      width: 60px;
+      height: 60px;
+      padding: 10px;
+      object-fit: contain;
+    }
+
+    .tech-icon-wrapper:hover .tech-icon {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    .tech-icon-wrapper p {
+      font-size: 0.9rem;
+      color: var(--text-color);
+      margin-top: 8px;
+    }
   </style>
 </head>
 <body>
@@ -361,7 +394,7 @@
       <h1 class="display-4 fw-bold mb-3">Hola, soy <span class="text-primary">Guillermo Barrena</span></h1>
       <p class="lead text-muted mb-4">Economista y Científico de Datos | Python · SQL · ML · Pandas · Analítica Avanzada
       </p>
-      <p class="text-muted mb-4 col-lg-8 mx-auto">Transformo datos en decisiones estratégicas mediante Python y técnicas avanzadas de análisis. Apasionado por encontrar soluciones innovadoras a desafíos complejos.</p>
+      <p class="text-muted mb-4 col-lg-8 mx-auto">Transformo datos en decisiones estratégicas mediante Python y técnicas avanzadas de análisis. Apasionado por encontrar soluciones innovadoras y simplificar desafíos complejos.</p>
       
       <div class="d-flex justify-content-center gap-3 mb-5">
         <a href="#cv" class="btn btn-primary btn-lg">Descarga mi CV</a>
@@ -382,6 +415,55 @@
       </div>
     </div>
   </main>
+
+  <!-- Technologies Section -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h3 class="text-center mb-5">Tecnologías utilizadas</h3>
+      <div class="row justify-content-center g-4">
+        <!-- Python -->
+        <div class="col-4 col-md-2 text-center">
+          <div class="tech-icon-wrapper">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="tech-icon">
+            <p class="mt-2 mb-0">Python</p>
+          </div>
+        </div>
+        <!-- Pandas -->
+        <div class="col-4 col-md-2 text-center">
+          <div class="tech-icon-wrapper">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas" class="tech-icon">
+            <p class="mt-2 mb-0">Pandas</p>
+          </div>
+        </div>
+        <!-- SQL -->
+        <div class="col-4 col-md-2 text-center">
+          <div class="tech-icon-wrapper">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" class="tech-icon">
+            <p class="mt-2 mb-0">SQL</p>
+          </div>
+        </div>
+        <div class="col-4 col-md-2 text-center">
+          <div class="tech-icon-wrapper">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="tech-icon">
+            <p class="mt-2 mb-0">PostgreSQL</p>
+          </div>
+        </div>
+        <div class="col-4 col-md-2 text-center">
+          <div class="tech-icon-wrapper">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="tech-icon">
+            <p class="mt-2 mb-0">Docker</p>
+          </div>
+        </div>
+        <div class="col-4 col-md-2 text-center">
+          <div class="tech-icon-wrapper">
+            <img src="./assets/img/duckdb.png" alt="DuckDB" class="tech-icon">
+            <p class="mt-2 mb-0">DuckDB</p>
+          </div>
+        </div>
+      </div>
+      <h3 class="text-center mt-4 fs-6">Entre otras…</h3>
+    </div>
+  </section>
 
   <!-- CV Section -->
   <section id="cv" class="py-5">
