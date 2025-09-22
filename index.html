@@ -8,6 +8,7 @@
   <meta name="author" content="Guillermo Barrena" />
   
   <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png" />
   
@@ -15,7 +16,7 @@
   <meta property="og:title" content="Guillermo Barrena - Ciencia de Datos & Economía" />
   <meta property="og:description" content="Portfolio profesional de Guillermo Barrena - Especialista en Ciencia de Datos y Economía" />
   <meta property="og:image" content="assets/img/profile.png" />
-  <meta property="og:url" content="https://[tu-usuario].github.io/my-portfolio/" />
+  <meta property="og:url" content="https://guillebarrena-json.github.io/my-portfolio/" />
   <meta name="twitter:card" content="summary_large_image" />
   
   <title>Guillermo Barrena - Ciencia de Datos & Economía</title>
@@ -424,39 +425,39 @@
         <!-- Python -->
         <div class="col-4 col-md-2 text-center">
           <div class="tech-icon-wrapper">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="tech-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="tech-icon" loading="lazy">
             <p class="mt-2 mb-0">Python</p>
           </div>
         </div>
         <!-- Pandas -->
         <div class="col-4 col-md-2 text-center">
           <div class="tech-icon-wrapper">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas" class="tech-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas" class="tech-icon" loading="lazy">
             <p class="mt-2 mb-0">Pandas</p>
           </div>
         </div>
         <!-- SQL -->
         <div class="col-4 col-md-2 text-center">
           <div class="tech-icon-wrapper">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" class="tech-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" class="tech-icon" loading="lazy">
             <p class="mt-2 mb-0">SQL</p>
           </div>
         </div>
         <div class="col-4 col-md-2 text-center">
           <div class="tech-icon-wrapper">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="tech-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="tech-icon" loading="lazy">
             <p class="mt-2 mb-0">PostgreSQL</p>
           </div>
         </div>
         <div class="col-4 col-md-2 text-center">
           <div class="tech-icon-wrapper">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="tech-icon">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="tech-icon" loading="lazy">
             <p class="mt-2 mb-0">Docker</p>
           </div>
         </div>
         <div class="col-4 col-md-2 text-center">
           <div class="tech-icon-wrapper">
-            <img src="./assets/img/duckdb.png" alt="DuckDB" class="tech-icon">
+            <img src="./assets/img/duckdb.png" alt="DuckDB" class="tech-icon" loading="lazy">
             <p class="mt-2 mb-0">DuckDB</p>
           </div>
         </div>
@@ -473,37 +474,29 @@
           <div class="cv-container">
             <div class="text-center mb-4">
               <h2 class="h1 mb-3">Currículum Vitae</h2>
-              <p class="text-muted">Selecciona el idioma para ver o descargar mi CV</p>
+              <p class="text-muted">Selecciona el idioma para descargar mi CV</p>
             </div>
 
             <div class="cv-buttons">
               <!-- Spanish CV Button -->
-              <button onclick="loadCV('ES')" class="btn btn-outline-primary d-flex align-items-center gap-2 justify-content-center">
+              <a href="assets/cv/CV_GuillermoBarrena_ES.pdf" download onclick="loadCV('ES')" class="btn btn-outline-primary d-flex align-items-center gap-2 justify-content-center">
                 <i class="bi bi-file-earmark-text"></i>
                 <span>Español</span>
                 <img src="https://flagcdn.com/24x18/es.png" width="24" height="18" alt="Español">
-              </button>
+              </a>
 
               <!-- English CV Button -->
-              <button onclick="loadCV('EN')" class="btn btn-outline-primary d-flex align-items-center gap-2 justify-content-center">
+              <a href="assets/cv/CV_GuillermoBarrena_EN.pdf" download onclick="loadCV('EN')" class="btn btn-outline-primary d-flex align-items-center gap-2 justify-content-center">
                 <i class="bi bi-file-earmark-text"></i>
                 <span>Inglés</span>
                 <img src="https://flagcdn.com/24x18/gb.png" width="24" height="18" alt="Inglés">
-              </button>
-            </div>
-
-            <!-- Download Button -->
-            <div class="text-center mb-4">
-              <a id="cvDownload" href="assets/cv/CV_GuillermoBarrena_ES.pdf" class="btn btn-primary d-inline-flex align-items-center gap-2 justify-content-center" download>
-                <i class="bi bi-download"></i>
-                <span>Descargar CV (Español)</span>
               </a>
             </div>
 
             <!-- Preview Container -->
             <div class="cv-preview">
               <div class="ratio ratio-16x9">
-                <iframe id="cvFrame" src="assets/cv/CV_GuillermoBarrena_ES.pdf" class="w-100 h-100" style="border:none;" title="Vista previa del CV"></iframe>
+                <iframe id="cvFrame" src="assets/cv/CV_GuillermoBarrena_ES.pdf" class="w-100 h-100" style="border:none;" title="Vista previa del CV" loading="lazy"></iframe>
               </div>
             </div>
           </div>
@@ -547,17 +540,7 @@
   <script>
     function loadCV(lang) {
       const frame = document.getElementById("cvFrame");
-      const download = document.getElementById("cvDownload");
-      const isSpanish = lang === "ES";
-
       frame.src = `assets/cv/CV_GuillermoBarrena_${lang}.pdf`;
-      download.href = `assets/cv/CV_GuillermoBarrena_${lang}.pdf`;
-      download.innerHTML = `
-        <i class="bi bi-download"></i>
-        <span>
-          ${isSpanish ? 'Descargar CV (Español)' : 'Download CV (English)'}
-        </span>
-      `;
     }
 
     // Add mobile menu functionality
